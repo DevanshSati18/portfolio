@@ -1,0 +1,42 @@
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-colored {
+  background-color: #333;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .profile-name {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.navbar .logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navbar .nav-link {
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .navbar .profile-name {
+    display: none;
+  }
+}
