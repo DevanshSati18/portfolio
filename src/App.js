@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CustomNavbar from './Common/CustomNavbar';
-import Home from './Pages/Home'
+import Home from './Pages/Home/Home'
 /* import Research from './Research';
 import Resume from './Resume';
 import Projects from './Projects';
