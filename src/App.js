@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import CustomNavbar from './Common/CustomNavbar';
-import Home from './Pages/Home/Home'
-/* import Research from './Research';
-import Resume from './Resume';
-import Projects from './Projects';
-import Contact from './Contact'; */
+import Home from './Pages/Home/Home';
+// import Research from './Research';
+// import Resume from './Resume';
+// import Projects from './Projects';
+// import Contact from './Contact';
 import ThemeToggle from './Common/ThemeToggle';
 import Loader from './Common/Loader';
 
@@ -27,10 +27,14 @@ function App() {
         <ThemeToggle setTheme={setTheme} currentTheme={theme} />
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* Uncomment your routes if needed */}
           {/* <Route path="/research" element={<Research />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} /> */}
+
+          {/* Catch-all route to redirect to home page */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>
