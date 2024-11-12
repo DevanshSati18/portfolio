@@ -1,6 +1,6 @@
 import React from 'react';
-import backgroundImage from '../../Assets/Home'; // Import your background image
-import topImage from '../../Assets/Home'; // Import the round image
+import backgroundImage from '../../Assets/Home/bg1.jpeg'; // Import your background image
+import topImage from '../../Assets/Home/profileimage.jpeg'; // Import the round image
 
 const LeftHomePage = () => {
   return (
