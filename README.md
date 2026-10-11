@@ -1,16 +1,71 @@
-# React + Vite
+# devanshsati.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of Devansh Sati — researcher, developer, cybersecurity engineer.
 
-Currently, two official plugins are available:
+Static Next.js site (no backend) with a Three.js particle field that morphs per page,
+Motion animations, dark + light themes and a keyboard command palette.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Page | Route | Background shape |
+| --- | --- | --- |
+| Home | `/` | Core sphere with orbital ring |
+| Research | `/research/` | Perturbation field (adversarial pixels in amber) |
+| Development | `/development/` | Layered system lattice |
+| Exploration | `/exploration/` | Graticule globe with waypoint beacons |
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static output in ./out
+npm start          # serve ./out locally
+```
 
-## Expanding the ESLint configuration
+## Edit content
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Everything — text, links, projects, experience, travel waypoints — lives in
+**`src/data/profile.ts`**. Links left as `""` are hidden automatically.
+
+Things to fill in:
+
+- `links` → Google Scholar (and ORCID if you have one)
+- `thesis.links` → LightDefend repo / thesis PDF
+- `waypoints` → add trips (lat/lon puts a beacon on the globe)
+- `curiosities`, `now` → starter text, rewrite in your own voice
+- `public/Devansh_Sati_CV.pdf` → replace with your latest CV (note: it includes your phone number)
+
+## Keyboard
+
+- `⌘K` / `Ctrl K` or `/` — command palette (pages, copy email, CV, profiles)
+- `T` — toggle theme
+
+The site respects `prefers-reduced-motion` (static field, no scramble) and prints cleanly.
+
+## Deploy — GitHub Pages (now)
+
+1. Create a repo (e.g. `DevanshSati18/portfolio`) and push this folder to `main`.
+2. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+   The workflow in `.github/workflows/deploy.yml` builds and publishes `./out` on every push.
+3. Custom domain: `public/CNAME` already contains `devanshsati.com`.
+   At your DNS provider add:
+   - `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` for `www` → `devanshsati18.github.io`
+   Then set the custom domain in Settings → Pages and tick **Enforce HTTPS**.
+
+## Deploy — self-hosted (later)
+
+`npm run build` produces plain files in `./out`; any static server works. Example nginx:
+
+```nginx
+server {
+  server_name devanshsati.com www.devanshsati.com;
+  root /var/www/devanshsati/out;
+  location / { try_files $uri $uri/ $uri.html =404; }
+  error_page 404 /404.html;
+  location /_next/static/ { add_header Cache-Control "public, max-age=31536000, immutable"; }
+}
+```
+
+## Stack
+
+Next.js 15 (static export) · React 19 · Three.js · Motion · TypeScript · Geist + Instrument Serif (self-hosted, no Google Fonts call).

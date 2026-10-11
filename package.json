@@ -1,31 +1,28 @@
 {
-  "name": "devansh-portfolio",
+  "name": "devanshsati-portfolio",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "Personal portfolio of Devansh Sati — devanshsati.com",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "npx serve@14 out",
+    "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^12.23.25",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "@fontsource/instrument-serif": "^5.3.0",
+    "geist": "^1.7.2",
+    "motion": "12.43.0",
+    "next": "15.5.27",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "three": "0.179.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "autoprefixer": "^10.4.22",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.17",
-    "vite": "^7.2.4"
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "0.179.0",
+    "typescript": "^5.6"
   }
 }
